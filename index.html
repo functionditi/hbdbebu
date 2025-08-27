@@ -1,0 +1,1968 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Birthday 💚</title>
+    <style>
+        @font-face {
+            font-family: 'PP Mori';
+            src: url('./PPMori/PPMori-SemiBold.otf') format('opentype');
+            /* font-weight: 600;
+            font-style: normal;
+            font-display: swap; */
+        }
+
+        @font-face {
+            font-family: 'PP Rounded Italic';
+            src: url('./PPSansRounded/PPPangramSansRounded-ExtraboldItalic.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'PP Rounded Normal';
+            src: url('./PPSansRounded/PPPangramSansRounded-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'PP Rounded Reclined';
+            src: url('./PPSansRounded/PPPangramSansRounded-SlimMediumReclined.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+
+        :root {
+            --bg: #8A382D;
+            --wht: #ffffff;
+            --ink: #0a0f19;
+            --muted: #5b6675;
+            --line: #d6dee6;
+            --accent: #111827;
+            --card-radius: 22px;
+
+            /* game colors */
+            --diamond: #FFF3D9;
+            --diamond-edge: #8C8419;
+            --basket: #111827;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--bg);
+            font: 14px/1.5 'PP Rounded Normal', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            backdrop-filter: blur(6px);
+            background: linear-gradient(180deg, rgba(138, 56, 45, .95) 0%, rgba(138, 56, 45, .8) 70%, transparent);
+            padding: 24px 24px 16px;
+            border-bottom: 2px solid rgba(255, 243, 217, .35);
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 6px;
+            font-size: clamp(42px, 16vw, 85px);
+            line-height: 1.05;
+        }
+
+        header p {
+            margin: 0;
+            color: #FFF3D9;
+            opacity: .9;
+        }
+
+        /* Masonry (multi-column, not CSS grid) */
+        .masonry {
+            columns: 1;
+            column-gap: 16px;
+            padding: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width:680px) {
+            .masonry {
+                columns: 2;
+            }
+        }
+
+        @media (min-width:1080px) {
+            .masonry {
+                columns: 3;
+            }
+        }
+
+        .card {
+            --card-bg: #ffffff;
+            --card-border: var(--line);
+            break-inside: avoid;
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: var(--card-radius);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+            margin: 0 0 16px;
+            overflow: clip;
+        }
+
+        .card.lime {
+            --card-bg: #FFF3D9;
+            --card-border: #EBD9B8;
+        }
+
+        .card.mint {
+            --card-bg: #BBC39E;
+            --card-border: #A7AE84;
+        }
+
+        .card.pink {
+            --card-bg: #CFA082;
+            --card-border: #BB8E74;
+        }
+
+        .card.blue {
+            --card-bg: #5475E8;
+            --card-border: #405FCC;
+            color: #fff;
+        }
+
+        .card.olive {
+            --card-bg: #8C8419;
+            --card-border: #7c7415;
+            color: #fff;
+        }
+
+
+        .card h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .card header {
+            position: relative;
+            background: none;
+            border: 0;
+            padding: 14px 16px;
+        }
+
+        .card .body {
+            padding: 0 16px 16px;
+        }
+
+        .hint {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .hint-light {
+            color: var(--line);
+            font-size: 12px;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            appearance: none;
+            border: 2px solid var(--ink);
+            background: #fff;
+            color: var(--ink);
+            border-radius: 14px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .btn:hover {
+            filter: brightness(.98);
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background: #fff;
+            color: var(--ink);
+            border: 2px solid var(--line);
+            border-radius: 12px;
+            padding: 10px 12px;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 6px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            left: -9999px;
+        }
+
+        /* Spotify */
+        .spotify-frame {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 18px;
+        }
+
+        .liner-notes {
+            margin-top: 8px;
+            background: #fff;
+            border: 2px dashed var(--line);
+            border-radius: 14px;
+            padding: 10px;
+        }
+
+        /* ASMR */
+        /* drag-over highlight */
+        #asmrCard.dropping {
+            outline: 3px dashed rgba(0, 0, 0, .35);
+            outline-offset: 6px;
+        }
+
+
+        /* Candle */
+        .candle-wrap {
+            display: grid;
+            place-items: center;
+            margin: 12px 0;
+        }
+
+        .candle {
+            position: relative;
+            width: 60px;
+            height: 120px;
+            background: linear-gradient(180deg, #e9eef6, #dbe4ef);
+            border-radius: 18px;
+            border: 2px solid #cbd8ea;
+        }
+
+        .wick {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 3px;
+            height: 16px;
+            background: #111;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .flame {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            width: 18px;
+            height: 38px;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 48% 52% / 65% 65% 35% 35%;
+            background: radial-gradient(closest-side, #ffd777 0%, #ff914d 60%, rgba(255, 145, 77, 0) 70%);
+            box-shadow: 0 0 16px 6px rgba(255, 166, 106, .35);
+            animation: flicker .12s infinite alternate;
+        }
+
+
+        @keyframes flicker {
+            from {
+                transform: translateX(-50%) scale(1)
+            }
+
+            to {
+                transform: translateX(-48%) scale(1.05)
+            }
+        }
+
+        .flame.off {
+            opacity: 0;
+            box-shadow: none;
+            animation: none;
+        }
+
+
+        /* lunch picker */
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .chip {
+            background: #fff;
+            border: 2px solid var(--line);
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #000;
+        }
+
+        .chip .x {
+            background: none;
+            border: 0;
+            cursor: pointer;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        /* Scratch */
+        .scratch-wrap {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px dashed #b9c5d6;
+            background: #fff;
+        }
+
+        .scratch-hidden {
+            padding: 24px;
+            text-align: center;
+        }
+
+        canvas.scratch {
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Spin-the-date */
+        .wheel {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: 10px solid #ffffff;
+            margin: 12px auto;
+            position: relative;
+            background: conic-gradient(#7c7415 0 45deg, #8C8419 45deg 90deg, #EBD9B8 90deg 135deg, #FFF3D9 135deg 180deg, #BB8E74 180deg 225deg, #CFA082 225deg 270deg, #A7AE84 270deg 315deg, #BBC39E 315deg 360deg);
+            transition: transform 2.5s cubic-bezier(.2, .85, .15, 1.1);
+            box-shadow: inset 0 0 0 2px #cbd5e1;
+        }
+
+        .pointer {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 14px solid #111827;
+            margin: 0 auto;
+        }
+
+        .wheel-emo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 26px;
+            filter: drop-shadow(0 1px 0 #fff8);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Puzzle */
+        .puzzle {
+            width: 300px;
+            height: 300px;
+            margin: 10px auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .tile {
+            background-size: 300px 300px;
+            border-radius: 12px;
+            border: 2px solid #cbd5e1;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            color: #0a0f19;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .empty {
+            background: repeating-conic-gradient(from 0deg, #f3f6f9 0 10deg, #f0f4f8 10deg 20deg);
+            cursor: default;
+        }
+
+        /* Clocks */
+        .clock-pair {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .clock {
+            /* flex: 1 220px; */
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 6px;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .clock .time {
+            font-size: 28px;
+            font-variant-numeric: tabular-nums;
+            font-weight: 800;
+        }
+
+
+        .countdown {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cd {
+            background: #fff;
+            border: 2px solid var(--line);
+            border-radius: 12px;
+            padding: 6px 8px;
+            text-align: center;
+            min-width: 52px;
+            color: #0a0f19;
+        }
+
+        .cd .n {
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .cd .u {
+            font-size: 11px;
+        }
+
+        .card.olive .hint,
+        .card.olive label {
+            color: #fff;
+            opacity: .95;
+        }
+
+        .card.olive .time {
+            color: #fff;
+        }
+
+        .card.olive .countdown .u {
+            color: #000;
+        }
+
+        /* labels in black */
+
+        /* Letters */
+        .letter {
+            background: #fff;
+            border: 2px solid var(--line);
+            border-radius: 14px;
+            padding: 12px;
+            position: relative;
+        }
+
+        .locked::after {
+            content: "Locked";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            border: 1px solid #ced7e1;
+            color: #7a8492;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .stat {
+            background: #fff;
+            border: 2px solid var(--line);
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .stat .num {
+            font-size: 28px;
+            font-weight: 900;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat .lab {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .small {
+            font-size: 20px;
+            color: var(--wht);
+        }
+
+        /* Timeline */
+        .timeline {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 0 22px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgba(10, 15, 25, .4);
+            border-radius: 999px;
+        }
+
+        .tl-item {
+            position: relative;
+            margin: 0 0 14px;
+        }
+
+        .tl-dot {
+            position: absolute;
+            left: 4px;
+            top: 10px;
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            border: 2px solid var(--ink);
+            border-radius: 50%;
+        }
+
+        .tl-content {
+            background: #fff;
+            border: 2px solid var(--line);
+            border-radius: 14px;
+            padding: 10px;
+        }
+
+        .tl-date {
+            font-weight: 800;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .tl-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid var(--line);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tl-text {
+            margin: 0;
+        }
+
+        /* Postcards */
+        .polaroids {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .polaroid {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .polaroid .flip {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            transition: transform .6s;
+            transform-style: preserve-3d;
+        }
+
+        .polaroid.flipped .flip {
+            transform: rotateY(180deg);
+        }
+
+        .face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            display: flex;
+        }
+
+        .face.back {
+            transform: rotateY(180deg);
+        }
+
+        .frame {
+            margin: 0;
+            background: #fff;
+            border: 2px solid var(--ink);
+            border-radius: 12px;
+            padding: 8px 8px 18px;
+            box-shadow: 0 10px 16px rgba(0, 0, 0, .12);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .frame img {
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--line);
+            display: block;
+        }
+
+        .frame figcaption {
+            text-align: center;
+            font-size: 12px;
+            color: var(--ink);
+            margin-top: 6px;
+        }
+
+        .backnote {
+            background: #fff;
+            border: 2px dashed var(--line);
+            border-radius: 12px;
+            padding: 12px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .backnote .date {
+            margin-top: 8px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* Kaju Katli game */
+        .game-wrap {
+            position: relative;
+        }
+
+        .game-hud {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .hud-badge {
+            background: #fff;
+            border: 2px solid var(--line);
+            border-radius: 12px;
+            padding: 6px 10px;
+            font-weight: 800;
+        }
+
+        .game-canvas {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border: 2px solid var(--line);
+            border-radius: 14px;
+            background: #0b0f16;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .game-ctrls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="color:#FFF3D9">HAPPY BIRTHDAY <span
+                style="font-family: 'PP Rounded Italic'; color:#BBC39E ;">ULLU!</span> ❤️</h1>
+        <p class="small">To the bestest boy in the whole wide world.</p>
+    </header>
+
+    <main class="masonry" id="wall">
+
+        <!-- CANDLE (first card) -->
+        <section class="card mint" id="candleCard">
+            <header>
+                <h2>Blow out the candle, pls 🎂</h2>
+                <p class="hint">Husha Pusha we all fall down!!</p>
+            </header>
+            <div class="body center">
+                <div class="candle-wrap">
+                    <div class="candle" aria-label="birthday candle">
+                        <div class="flame" id="flame"></div>
+                        <div class="wick"></div>
+                    </div>
+                </div>
+                <div class="row center" style="justify-content:center; gap:8px;">
+                    <button class="btn" id="micBtn">Enable Microphone, Stinky</button>
+                    <button class="btn" id="relightBtn" style="display:none">Relight</button>
+                </div>
+                <p class="hint" id="candleMsg"></p>
+            </div>
+        </section>
+
+        <!-- SPOTIFY -->
+        <section class="card lime" id="spotifyCard">
+            <header>
+                <h2>Something I will never ever admit to your face: your music taste is better than mine.</h2>
+                <p class="hint">Some of the songs that remind me most of you. (And some more that I tried to hunt down)
+                </p>
+            </header>
+            <div class="body">
+                <iframe class="spotify-frame" id="spotifyFrame"
+                    src="https://open.spotify.com/embed/playlist/0TbytTK8JIQSxUVgDkhL1V?utm_source=generator"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+                <div class="liner-notes" contenteditable role="textbox" aria-label="liner notes">
+                    I'd like to make this playlist with you, Bebu! I wanna add songs together :)
+                </div>
+            </div>
+        </section>
+
+        <!-- SCRATCH -->
+        <section class="card pink" id="scratchCard">
+            <header>
+                <h2>Scratchy Scratch to reveal!!</h2>
+                <p class="hint">Use mouse!!</p>
+            </header>
+            <div class="body">
+                <div class="scratch-wrap" id="scratchWrap">
+                    <div class="scratch-hidden" id="scratchHidden">
+                        <h3>Bebu Unlimited Wish Day</h3>
+                        <p>Redeem: One span of 24 hours where anything that Bebu wants, Bebu gets. </p>
+                        <!-- <a class="btn" href="#spotifyCard">queue our movie playlist</a> -->
+                    </div>
+                    <canvas class="scratch" id="scratchCanvas"></canvas>
+                </div>
+                <p class="hint">once you scratch ~60%, it fully reveals.</p>
+            </div>
+        </section>
+
+        <!-- SPIN -->
+        <section class="card blue" id="spinCard">
+            <header>
+                <h2>Spin the Date Wheel</h2>
+                <p class="hint-light">Mini dates for whenever!!</p>
+            </header>
+            <div class="body center">
+                <div class="pointer" aria-hidden="true"></div>
+                <div class="wheel" id="wheel" aria-label="date wheel"></div>
+                <div class="row center" style="justify-content:center;">
+                    <button class="btn" id="spinBtn">Spin</button>
+                </div>
+                <p id="spinResult" class="hint-light" style="margin-top:8px"></p>
+            </div>
+        </section>
+
+
+
+        <!-- CLOCKS + COUNTDOWN (SGT + EST only, side-by-side via flex) -->
+        <section class="card olive" id="timeCard">
+            <header>
+                <h2>I’ll see your Chehra in ⏰</h2>
+            </header>
+            <div class="body">
+                <div class="clock-pair">
+                    <div class="clock">
+                        <div>
+                            <div class="pill">SGT</div>
+                            <div class="time" id="myTime">--:--:--</div>
+                        </div>
+                    </div>
+                    <div class="clock">
+                        <div>
+                            <div class="pill">EST</div>
+                            <div class="time" id="theirTime">--:--:--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="visitDate" id="visitDate">NEXT VISIT</label>
+                <!-- input is interpreted as SGT -->
+                <input id="visitDate" type="datetime-local" value="2025-10-11T22:15" />
+
+                <div class="countdown" id="countdown" aria-live="polite">
+                    <div class="cd">
+                        <div class="n" id="cdDays">--</div>
+                        <div class="u">days</div>
+                    </div>
+                    <div class="cd">
+                        <div class="n" id="cdHours">--</div>
+                        <div class="u">hours</div>
+                    </div>
+                    <div class="cd">
+                        <div class="n" id="cdMins">--</div>
+                        <div class="u">mins</div>
+                    </div>
+                    <div class="cd">
+                        <div class="n" id="cdSecs">--</div>
+                        <div class="u">secs</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUZZLE 5x5 -->
+        <section class="card mint" id="puzzleCard">
+            <header>
+                <h2>Puzzle for Boyu</h2>
+                <p class="hint">Solve to reveal something Boyu can't live without</p>
+            </header>
+            <div class="body center">
+                <div class="puzzle" id="puzzle" aria-label="sliding puzzle"></div>
+                <div class="row center" style="justify-content:center;">
+                    <button class="btn" id="shufflePuzzle">Shuffle</button>
+                </div>
+                <p id="puzzleMsg" class="hint"></p>
+            </div>
+        </section>
+
+
+
+        <!-- OPEN WHEN -->
+        <!-- <section class="card blue" id="openWhenCard">
+            <header>
+                <h2>open when… ✉️</h2>
+                <p class="hint">letters unlock on their dates</p>
+            </header>
+            <div class="body">
+                <div class="letter locked" data-unlock="2025-08-26T00:00:00" tabindex="0">
+                    <h3>you miss me a lot</h3>
+                    <div class="content">hey you. pause the song and read this slowly… three things i adore about you:
+                        1) your laugh; 2) your curiosity; 3) how you show up when it matters. i’m right here, always. 💚
+                    </div>
+                    <p class="small">unlocks on 1 sep 2025</p>
+                </div>
+                <div class="letter locked" data-unlock="2025-10-05T00:00:00" tabindex="0" style="margin-top:10px">
+                    <h3>it’s a rough day</h3>
+                    <div class="content">breathe with me: in 4… out 6. repeat 5 times. then text me one small win from
+                        today, and i’ll share mine. we’ve got this, together.</div>
+                    <p class="small">unlocks on 5 oct 2025</p>
+                </div>
+                <p class="hint" style="margin-top:8px">customize the unlock dates/text inside the html.</p>
+            </div>
+        </section> -->
+
+        <!-- STATS -->
+        <section class="card lime" id="statsCard">
+            <header>
+                <h2>Year in us!! 📈</h2>
+                <p class="hint">My math is weak at best.</p>
+            </header>
+            <div class="body">
+                <div class="stats">
+                    <div class="stat">
+                        <div class="num" data-target="120">0</div>
+                        <div class="lab">hours on calls</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num" data-target="45750">0</div>
+                        <div class="lab">kisses</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num" data-target="8">8</div>
+                        <div class="lab">cities crossed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num" data-target="43">0</div>
+                        <div class="lab">uber eats and grab</div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <button class="btn" id="animateStats">Play</button>
+                    <button class="btn" id="resetStats">Reset</button>
+                </div>
+                <p class="hint">So assuming we spend approx 5 hours a day (weekends + weekday average) on call together,
+                    and we've been LDR since Feb 1st, which is 207 days, then 5 x 207 </p>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <!-- <section class="card blue" id="timelineCard">
+            <header>
+                <h2>our timeline 🗓️</h2>
+                <p class="hint">edit dates/photos in the html</p>
+            </header>
+            <div class="body">
+                <ol class="timeline" id="timeline">
+                    <li class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <div class="tl-date">22 Dec 2024</div>
+                            <img class="tl-img"
+                                src="https://images.unsplash.com/photo-1529336953121-4e0a9a2cc5a5?q=80&w=1200&auto=format&fit=crop"
+                                alt="first call" />
+                            <p class="tl-text">first voice call that lasted way too long.</p>
+                        </div>
+                    </li>
+                    <li class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <div class="tl-date">14 Feb 2025</div>
+                            <img class="tl-img"
+                                src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
+                                alt="playlist swap" />
+                            <p class="tl-text">we swapped playlists and found our song.</p>
+                        </div>
+                    </li>
+                    <li class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <div class="tl-date">10 May 2025</div>
+                            <img class="tl-img"
+                                src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop"
+                                alt="first meetup" />
+                            <p class="tl-text">first in-person coffee ☕️ + park walk.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section> -->
+
+        <!-- POSTCARDS -->
+        <section class="card mint" id="postcardCard">
+            <header>
+                <h2>postcard wall 📮</h2>
+                <p class="hint">click a card to flip</p>
+            </header>
+            <div class="body">
+                <div class="polaroids" id="postcards">
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-01.png" alt="photo 01" />
+                                    <figcaption>Boyu eating pizzu</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>At best pizza place in NYC.</p>
+                                    <div class="date">July ’25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-02.png" alt="photo 02" />
+                                    <figcaption>Girlu kissing boyu face</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>At the Highline!</p>
+                                    <div class="date">April '25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-03.png" alt="photo 03" />
+                                    <figcaption>Sending my love off to NY.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>you got drug tested cuase your eyes were red :(</p>
+                                    <div class="date">Feb ’26</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-04.png" alt="photo 04" />
+                                    <figcaption>Raddison Bengaluru</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>We watched Dil Dhadakne Do!!</p>
+                                    <div class="date">Dec '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-05.png" alt="photo 05" />
+                                    <figcaption>Social distancing.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>We had the best makeout of our lives after this.</p>
+                                    <div class="date">Dec '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-06.png" alt="photo 06" />
+                                    <figcaption>Boyu Girlu last SG day</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>Boyu did a crazy fart this day</p>
+                                    <div class="date">Feb '25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-07.png" alt="photo 07" />
+                                    <figcaption>At the top of Capital Oasis.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>Remember the handicap washroom?</p>
+                                    <div class="date">Dec ’25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-08.png" alt="photo 08" />
+                                    <figcaption>Turkish at ECP.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>We cycled so so so much.</p>
+                                    <div class="date">Dec '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-09.png" alt="photo 09" />
+                                    <figcaption>ECP again!!!</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>Looked at a full moon.</p>
+                                    <div class="date">Dec '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-10.png" alt="photo 10" />
+                                    <figcaption>Starbucks at Little India</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>This was the day Satvik found out you and I are whack.</p>
+                                    <div class="date">Dec '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-11.png" alt="photo 11" />
+                                    <figcaption>Thai food near Kembangan.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>You smelt extra good that day</p>
+                                    <div class="date">Dec'25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-12.png" alt="photo 12" />
+                                    <figcaption>Cafe near Kembangan</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>The first time we were open about shitting HAHAHAHA</p>
+                                    <div class="date">Dec '25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-13.png" alt="photo 13" />
+                                    <figcaption>THE hotel!!</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>Where we lost our you know what.</p>
+                                    <div class="date">Nov '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-14.png" alt="photo 14" />
+                                    <figcaption>Honeymoon #1</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>Exploring caves of all types with Boyu</p>
+                                    <div class="date">Nov '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-15.png" alt="photo 15" />
+                                    <figcaption>OTW to Honeymoon #1</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>First flight together!!</p>
+                                    <div class="date">Nov '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-19.JPG" alt="photo 19" />
+                                    <figcaption>After booking flights to Vietnam</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>Doing whack things from day 1.</p>
+                                    <div class="date">Nov '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-20.JPG" alt="photo 20" />
+                                    <figcaption>First photobooth!!</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>First of many many many more.</p>
+                                    <div class="date">Nov '24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="polaroid">
+                        <div class="flip">
+                            <div class="face front">
+                                <figure class="frame">
+                                    <img src="./photos/pic-22.JPG" alt="photo 22" />
+                                    <figcaption>Second sleepover hehe :)</figcaption>
+                                </figure>
+                            </div>
+                            <div class="face back">
+                                <div class="backnote">
+                                    <p>We almost had Chaaya.</p>
+                                    <div class="date">Nov '25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- /polaroids -->
+            </div>
+        </section>
+
+
+
+
+        <!-- KAJU KATLI GAME -->
+        <section class="card pink" id="kajuCard">
+            <header>
+                <h2>Kaju Katli 💎</h2>
+                <p class="hint">Steal as many Katli as you can, my theiver boy.</p>
+            </header>
+            <div class="body">
+                <div class="game-wrap">
+                    <div class="game-hud">
+                        <div class="hud-badge">score: <span id="kkScore">0</span></div>
+                        <div class="hud-badge">time: <span id="kkTime">30</span>s</div>
+                    </div>
+                    <canvas id="kkCanvas" class="game-canvas" width="420" height="520"
+                        aria-label="kaju katli game"></canvas>
+                    <div class="game-ctrls">
+                        <button class="btn" id="kkStart">Start</button>
+                        <button class="btn" id="kkRestart" style="display:none">Restart</button>
+                    </div>
+                    <p class="hint center">move the basket with your mouse or finger</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LUNCH PICKER -->
+        <section class="card blue" id="lunchCard">
+            <header>
+                <h2>What should Boyu eat for lunch? 🍽️</h2>
+                <p class="hint-light">Let fate decide when Boyu and girlu can't.</p>
+            </header>
+            <div class="body">
+                <div class="chips" id="lunchList" aria-live="polite"></div>
+
+                <div class="row" style="margin-top:6px">
+                    <input id="lunchInput" type="text" placeholder="add an option" />
+                    <button class="btn" id="addLunch">Add</button>
+                </div>
+
+                <div class="row" style="margin-top:6px; align-items:center">
+                    <label class="row" style="gap:8px; align-items:center; margin:0;">
+                        <input id="noRepeat" type="checkbox" style="width:auto" />
+                        <span class="hint-light">no repeats today</span>
+                    </label>
+                </div>
+
+                <div class=" row" style="margin-top:8px">
+                    <button class="btn" id="pickLunch">Pick food!</button>
+                    <button class="btn" id="clearLunch">Reset list</button>
+                </div>
+
+                <!-- <p class="hint-light" style="margin-top:6px">
+                    defaults: fried chicken, biryani, panera’s, salad, pizza, bagel, mediterranean
+                </p> -->
+
+                <div class="letter" style="margin-top:8px; color: #000;">
+                    <strong>winner:</strong> <span id="lunchResult">—</span>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- ASMR -->
+        <!-- ASMR (video, no upload button) -->
+        <section class="card lime" id="asmrCard">
+            <header>
+                <h2>ASMR 🎧</h2>
+                <p class="hint">drag & drop an MP4 (or audio) onto this card</p>
+            </header>
+            <div class="body">
+                <video id="asmrVideo" controls playsinline
+                    style="width:100%; border-radius:14px; border:2px solid var(--line);">
+                    <source src="./asmrhbd-comp.mp4" type="video/mp4" />
+
+
+                </video>
+                <p class="hint">I am so sorry if I have traumatised you further.</p>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script>
+        /* ---------- helpers ---------- */
+        const $ = (sel, el = document) => el.querySelector(sel);
+        const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
+
+        /* ---------- spotify ---------- */
+        (() => {
+            const frame = $('#spotifyFrame');
+            const saved = localStorage.getItem('playlistURL');
+            if (saved) frame.src = saved;
+        })();
+
+        /* ---------- candle ---------- */
+        (() => {
+            const flame = $('#flame');
+            const micBtn = $('#micBtn');
+            const relightBtn = $('#relightBtn');
+            const msg = $('#candleMsg');
+            let audioCtx, analyser, micStream, raf;
+
+            const blowOut = () => {
+                flame.classList.add('off');
+                relightBtn.style.display = 'inline-block';
+                micBtn.style.display = 'none';
+                msg.textContent = 'make a wish ✨';
+                if (raf) cancelAnimationFrame(raf);
+                if (micStream) micStream.getTracks().forEach(t => t.stop());
+            };
+            const relight = () => {
+                flame.classList.remove('off');
+                msg.textContent = '';
+                relightBtn.style.display = 'none';
+                micBtn.style.display = 'inline-block';
+            };
+            $('#candleCard').addEventListener('click', (e) => {
+                if (e.target.closest('.flame')) blowOut();
+            });
+            relightBtn.addEventListener('click', relight);
+
+            micBtn.addEventListener('click', async () => {
+                try {
+                    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioCtx.createAnalyser();
+                    const source = audioCtx.createMediaStreamSource(micStream);
+                    source.connect(analyser);
+                    analyser.fftSize = 2048;
+                    const data = new Uint8Array(analyser.fftSize);
+                    msg.textContent = 'blow near your mic…';
+                    const tick = () => {
+                        analyser.getByteTimeDomainData(data);
+                        let sum = 0; for (let i = 0; i < data.length; i++) { const v = (data[i] - 128) / 128; sum += v * v; }
+                        const rms = Math.sqrt(sum / data.length);
+                        if (rms > 0.2) { blowOut(); return; }
+                        raf = requestAnimationFrame(tick);
+                    };
+                    tick();
+                } catch {
+                    alert('mic permission failed. tap the flame instead ❤️');
+                }
+            });
+        })();
+
+        /* ---------- scratch ---------- */
+        (() => {
+            const wrap = $('#scratchWrap');
+            const canvas = $('#scratchCanvas');
+            const ctx = canvas.getContext('2d');
+            const cover = () => {
+                const { width, height } = wrap.getBoundingClientRect();
+                canvas.width = Math.ceil(width); canvas.height = Math.ceil(height);
+                const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                grad.addColorStop(0, '#263141'); grad.addColorStop(1, '#1c2531');
+                ctx.fillStyle = grad; ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#334155'; ctx.font = '600 16px system-ui'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.fillText('scratch me', canvas.width / 2, canvas.height / 2);
+            };
+            const scratch = (x, y) => {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath(); ctx.arc(x, y, 20, 0, Math.PI * 2); ctx.fill();
+                ctx.globalCompositeOperation = 'source-over';
+            };
+            const getPercentCleared = () => {
+                const img = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+                let cleared = 0; for (let i = 3; i < img.length; i += 4) if (img[i] === 0) cleared++;
+                return cleared / (canvas.width * canvas.height) * 100;
+            };
+            let drawing = false;
+            const pos = (e) => { const r = canvas.getBoundingClientRect(); const t = e.touches ? e.touches[0] : e; return { x: t.clientX - r.left, y: t.clientY - r.top }; };
+            const onMove = (e) => { if (!drawing) return; const p = pos(e); scratch(p.x, p.y); e.preventDefault(); if (getPercentCleared() > 60) { ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.style.pointerEvents = 'none'; } };
+            const onDown = (e) => { drawing = true; onMove(e); };
+            const onUp = () => drawing = false;
+            window.addEventListener('resize', cover);
+            cover();
+            canvas.addEventListener('pointerdown', onDown);
+            canvas.addEventListener('pointermove', onMove);
+            window.addEventListener('pointerup', onUp);
+            canvas.addEventListener('touchstart', onDown, { passive: false });
+            canvas.addEventListener('touchmove', onMove, { passive: false });
+            canvas.addEventListener('touchend', onUp);
+        })();
+
+        /* ---------- spin (emojis centered in each sector) ---------- */
+        (() => {
+            const ideas = [
+                '☕️ Girlu Boyu make coffee & chit-chat',
+                '🔎 Photo Scavenger Hunt!!',
+                '🎤 Nimbuda Nimbuda break HEHEHE',
+                '✏️ Girlu Boyu draw each other in 5 min',
+                '🗺️ Google Maps Street View Guessing Game',
+                '🍳 Decide a meal to make/get together',
+                '🎧 Create quick playlists for each other',
+                '📖 Girlu Boyu write a 5 min poem'
+            ];
+            const emojis = ['☕️', '🔎', '🎤', '✏️', '🗺️', '🍳', '🎧', '📖'];
+
+            const wheel = $('#wheel');
+            const btn = $('#spinBtn');
+            const out = $('#spinResult');
+
+            // place emojis centered in each sector (mid-angle, inner radius)
+            const slice = 360 / emojis.length;
+            const radius = 60; // closer to center so not on border
+            emojis.forEach((emo, i) => {
+                const angle = (i * slice + slice / 2) - 90; // mid of slice, start at top
+                const span = document.createElement('span');
+                span.className = 'wheel-emo';
+                span.textContent = emo;
+                span.style.transform = `translate(-50%,-50%) rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
+                wheel.appendChild(span);
+            });
+
+            let angleAccum = 0;
+            const spin = () => {
+                const pick = Math.floor(Math.random() * ideas.length);
+                const spins = 5 * 360;
+                const targetAngle = (360 - (pick * slice + slice / 2)) % 360; // land pointer on middle of slice
+                angleAccum += spins + targetAngle + (Math.random() * 10 - 5);
+                wheel.style.transform = `rotate(${angleAccum}deg)`;
+                out.textContent = 'spinning…';
+                setTimeout(() => { out.textContent = ideas[pick]; }, 2600);
+            };
+            btn.addEventListener('click', spin);
+        })();
+
+        /* ---------- puzzle 5x5 ---------- */
+        (() => {
+            const puzzle = $('#puzzle');
+            const msg = $('#puzzleMsg');
+            const shuffleBtn = $('#shufflePuzzle');
+            const size = 5; const N = size * size; // 25
+            const img = 'secretphoto.jpg';
+            let state = Array.from({ length: N }, (_, i) => i);
+
+            const render = () => {
+                puzzle.innerHTML = '';
+                state.forEach((v, idx) => {
+                    const tile = document.createElement('button');
+                    tile.type = 'button'; tile.className = 'tile'; tile.style.width = tile.style.height = '100%';
+                    if (v === N - 1) { tile.classList.add('empty'); tile.disabled = true; }
+                    else {
+                        const x = v % size, y = Math.floor(v / size);
+                        tile.style.backgroundImage = `url(${img})`;
+                        tile.style.backgroundPosition = `${(-x * 100 / (size - 1))}% ${(-y * 100 / (size - 1))}%`;
+                        tile.style.backgroundSize = '300px 300px';
+                    }
+                    tile.addEventListener('click', () => move(idx));
+                    puzzle.appendChild(tile);
+                });
+            };
+            const coords = (i) => ({ x: i % size, y: Math.floor(i / size) });
+            const isAdj = (i, j) => { const a = coords(i), b = coords(j); return (a.x === b.x && Math.abs(a.y - b.y) === 1) || (a.y === b.y && Math.abs(a.x - b.x) === 1); };
+            const move = (i) => { const empty = state.indexOf(N - 1); if (isAdj(i, empty)) { [state[i], state[empty]] = [state[empty], state[i]]; render(); check(); } };
+            const inversions = (arr) => arr.filter(v => v !== N - 1).reduce((inv, v, i) => inv + arr.slice(i + 1).filter(w => w !== N - 1 && w < v).length, 0);
+            const solvableShuffle = () => { // odd grid => solvable when inversions even
+                do { state = state.sort(() => Math.random() - 0.5); } while (inversions(state) % 2 !== 0 || state.every((v, i) => v === i));
+                render(); msg.textContent = '';
+            };
+            const check = () => { const solved = state.every((v, i) => v === i); if (solved) { msg.textContent = 'memory unlocked: that first sunny walk ☀️'; } };
+            shuffleBtn.addEventListener('click', solvableShuffle);
+            solvableShuffle();
+        })();
+
+        /* ---------- clocks + countdown (SGT & EST only) ---------- */
+        (() => {
+            const SGT_ZONE = 'Asia/Singapore';
+            const EST_ZONE = 'America/New_York';
+
+            const els = {
+                myTime: $('#myTime'),
+                theirTime: $('#theirTime'),
+                visitDate: $('#visitDate'),
+                d: $('#cdDays'), h: $('#cdHours'), m: $('#cdMins'), s: $('#cdSecs'),
+            };
+
+            const savedDate = localStorage.getItem('visitDate');
+            if (els.visitDate && savedDate) els.visitDate.value = savedDate;
+            if (els.visitDate && !els.visitDate.value) els.visitDate.value = '2025-10-11T22:15';
+
+            const fmtTime = (zone) => new Intl.DateTimeFormat([], {
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: zone
+            }).format(new Date());
+
+            // countdown target interpreted as SGT
+            const getTargetFromInputSGT = () => {
+                const v = els.visitDate?.value || '2025-10-11T22:15';
+                return new Date(`${v}:00+08:00`);
+            };
+
+            const updateClocks = () => {
+                if (els.myTime) els.myTime.textContent = fmtTime(SGT_ZONE);
+                if (els.theirTime) els.theirTime.textContent = fmtTime(EST_ZONE);
+            };
+
+            const updateCountdown = () => {
+                const target = getTargetFromInputSGT();
+                const now = new Date();
+                let ms = target - now;
+                if (ms < 0) ms = 0;
+
+                const totalSec = Math.floor(ms / 1000);
+                const days = Math.floor(totalSec / 86400);
+                const hours = Math.floor((totalSec % 86400) / 3600);
+                const mins = Math.floor((totalSec % 3600) / 60);
+                const secs = totalSec % 60;
+
+                els.d.textContent = String(days);
+                els.h.textContent = String(hours).padStart(2, '0');
+                els.m.textContent = String(mins).padStart(2, '0');
+                els.s.textContent = String(secs).padStart(2, '0');
+            };
+
+            const tick = () => { updateClocks(); updateCountdown(); };
+            tick();
+            setInterval(tick, 1000);
+
+            els.visitDate?.addEventListener('change', () => {
+                localStorage.setItem('visitDate', els.visitDate.value);
+                updateCountdown();
+            });
+        })();
+
+        /* ---------- lunch picker ---------- */
+        (() => {
+            const KEY = 'lunchOptions.v1';
+            const USED = 'lunchUsed.v1';
+
+            const els = {
+                list: $('#lunchList'),
+                input: $('#lunchInput'),
+                add: $('#addLunch'),
+                pick: $('#pickLunch'),
+                clear: $('#clearLunch'),
+                norep: $('#noRepeat'),
+                out: $('#lunchResult'),
+            };
+
+            const DEFAULTS = ["Fried Chicken", "Biryani", "Panera's", "Salad", "Pizza", "Bagel", "Mediterranean"];
+
+            const load = () => {
+                try {
+                    const j = JSON.parse(localStorage.getItem(KEY) || '[]');
+                    return Array.isArray(j) && j.length ? j : DEFAULTS.slice();
+                } catch { return DEFAULTS.slice(); }
+            };
+            const loadUsed = () => new Set(JSON.parse(localStorage.getItem(USED) || '[]'));
+
+            let options = load();
+            let used = loadUsed();
+
+            const save = () => localStorage.setItem(KEY, JSON.stringify(options));
+            const saveUsed = () => localStorage.setItem(USED, JSON.stringify([...used]));
+
+            const render = () => {
+                els.list.innerHTML = '';
+                options.forEach(opt => {
+                    const pill = document.createElement('span');
+                    pill.className = 'chip';
+                    pill.dataset.name = opt;
+                    pill.innerHTML = `<span>${opt}</span><button class="x" aria-label="remove ${opt}">&times;</button>`;
+                    els.list.appendChild(pill);
+                });
+            };
+            render();
+
+            const add = () => {
+                let v = (els.input.value || '').trim();
+                if (!v) return;
+                if (options.some(o => o.toLowerCase() === v.toLowerCase())) { els.input.value = ''; return; }
+                options.push(v);
+                save(); render(); els.input.value = ''; els.input.focus();
+            };
+
+            els.add.addEventListener('click', add);
+            els.input.addEventListener('keydown', e => { if (e.key === 'Enter') add(); });
+
+            els.list.addEventListener('click', e => {
+                const btn = e.target.closest('.x');
+                if (!btn) return;
+                const name = btn.parentElement.dataset.name;
+                options = options.filter(o => o !== name);
+                used.delete(name.toLowerCase());
+                save(); saveUsed(); render();
+            });
+
+            els.clear.addEventListener('click', () => {
+                options = DEFAULTS.slice();
+                used.clear();
+                save(); saveUsed(); render();
+                els.out.textContent = '—';
+            });
+
+            const pick = () => {
+                if (!options.length) return;
+                let pool = options.slice();
+
+                if (els.norep.checked) {
+                    pool = pool.filter(o => !used.has(o.toLowerCase()));
+                    if (!pool.length) { // all used → reset today's history
+                        used.clear(); saveUsed();
+                        pool = options.slice();
+                    }
+                }
+
+                // tiny spin animation
+                let ticks = 0, anim;
+                const spin = () => {
+                    els.out.textContent = pool[Math.floor(Math.random() * pool.length)] + '…';
+                    if (ticks++ < 18) anim = setTimeout(spin, 60);
+                    else finish();
+                };
+                const finish = () => {
+                    const choice = pool[Math.floor(Math.random() * pool.length)];
+                    els.out.textContent = choice;
+                    if (els.norep.checked) { used.add(choice.toLowerCase()); saveUsed(); }
+                };
+                spin();
+            };
+
+            els.pick.addEventListener('click', pick);
+        })();
+
+
+        /* ---------- open when ---------- */
+        (() => {
+            const items = $$('#openWhenCard .letter');
+            const now = () => new Date();
+            const refresh = () => {
+                items.forEach(el => {
+                    const unlock = new Date(el.dataset.unlock);
+                    const content = el.querySelector('.content');
+                    const isOpen = now() >= unlock;
+                    el.classList.toggle('locked', !isOpen);
+                    content.style.display = isOpen ? 'block' : 'none';
+                    el.setAttribute('aria-disabled', String(!isOpen));
+                });
+            };
+            refresh();
+            setInterval(refresh, 60 * 1000);
+        })();
+
+        /* ---------- stats ---------- */
+        (() => {
+            const nums = $$('#statsCard .num');
+            const animate = () => {
+                nums.forEach(el => {
+                    const target = parseInt(el.dataset.target || '0', 10);
+                    const start = 0; const steps = 60; let n = 0;
+                    const tick = () => { n++; const t = n / steps; el.textContent = Math.round(start + (target - start) * t); if (n < steps) requestAnimationFrame(tick); };
+                    el.textContent = '0'; requestAnimationFrame(tick);
+                });
+            };
+            $('#animateStats').addEventListener('click', animate);
+            $('#resetStats').addEventListener('click', () => nums.forEach(n => n.textContent = '0'));
+        })();
+
+        /* ---------- postcards flip ---------- */
+        (() => {
+            const grid = document.querySelector('#postcards');
+            if (!grid) return;
+            grid.addEventListener('click', (e) => {
+                const card = e.target.closest('.polaroid');
+                if (card) card.classList.toggle('flipped');
+            });
+        })();
+
+        /* ---------- Kaju Katli falling diamonds game (faster) ---------- */
+        (() => {
+            const cvs = $('#kkCanvas');
+            const ctx = cvs.getContext('2d');
+            const startBtn = $('#kkStart');
+            const restartBtn = $('#kkRestart');
+            const scoreEl = $('#kkScore');
+            const timeEl = $('#kkTime');
+
+            let W = cvs.width, H = cvs.height;
+            let running = false, over = false;
+            let score = 0, time = 30, timerId = null, animId = null;
+
+            const basket = { x: W / 2, y: H - 30, w: 80, h: 12 };
+            const diamonds = [];
+
+            const rand = (a, b) => a + Math.random() * (b - a);
+
+            // diamond aspect controls
+            // diamond proportions (half-diagonals relative to s)
+            const DIAMOND_W = 0.85; // horizontal half-diagonal  (smaller = thinner)
+            const DIAMOND_H = 1.45; // vertical   half-diagonal  (bigger  = taller)
+
+
+
+            const reset = () => {
+                score = 0; time = 30; scoreEl.textContent = '0'; timeEl.textContent = '30';
+                diamonds.length = 0;
+                basket.x = W / 2;
+                over = false;
+            };
+
+            const spawnDiamond = () => {
+                diamonds.push({
+                    x: rand(20, W - 20),
+                    y: -20,
+                    s: rand(10, 16),        // size
+                    v: rand(3.5, 6.0),      // fall speed (faster)
+                    wob: rand(0.012, 0.035),
+                    wobT: rand(0, Math.PI * 2)
+                });
+            };
+
+            const drawDiamond = (d) => {
+                const hx = d.s * DIAMOND_W;  // half width (diagonal on x)
+                const hy = d.s * DIAMOND_H;  // half height (diagonal on y)
+
+                // body
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(d.x, d.y - hy); // top
+                ctx.lineTo(d.x + hx, d.y);      // right
+                ctx.lineTo(d.x, d.y + hy); // bottom
+                ctx.lineTo(d.x - hx, d.y);      // left
+                ctx.closePath();
+
+                ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--diamond').trim() || '#FFF3D9';
+                ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--diamond-edge').trim() || '#8C8419';
+                ctx.lineWidth = 2;
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+
+                // soft shine
+                ctx.save();
+                ctx.globalAlpha = .18;
+                ctx.beginPath();
+                ctx.ellipse(d.x - hx * 0.25, d.y - hy * 0.25, hx * 0.6, hy * 0.6, 0, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.fill();
+                ctx.restore();
+            };
+
+
+            const drawBasket = () => {
+                ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--basket').trim() || '#111827';
+                ctx.fillRect(basket.x - basket.w / 2, basket.y - basket.h / 2, basket.w, basket.h);
+                // lip
+                ctx.fillStyle = '#fff';
+                ctx.fillRect(basket.x - basket.w / 2, basket.y - basket.h / 2, basket.w, 2);
+            };
+
+            const step = () => {
+                ctx.clearRect(0, 0, W, H);
+                // background grid
+                ctx.strokeStyle = 'rgba(255,255,255,.06)';
+                ctx.lineWidth = 1;
+                for (let x = 0; x < W; x += 20) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+                for (let y = 0; y < H; y += 20) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+                // faster spawn rate
+                if (Math.random() < 0.08) spawnDiamond();
+
+                // update & draw diamonds
+                for (let i = diamonds.length - 1; i >= 0; i--) {
+                    const d = diamonds[i];
+                    d.wobT += d.wob;
+                    d.x += Math.sin(d.wobT) * 0.6;
+                    d.y += d.v;
+
+                    drawDiamond(d);
+
+                    // catch check
+
+                    // use vertical half-diagonal for collision
+                    const hy = d.s * DIAMOND_H;
+                    if (d.y + hy >= basket.y - basket.h / 2 &&
+                        d.y - hy <= basket.y + basket.h / 2 &&
+                        d.x >= basket.x - basket.w / 2 &&
+                        d.x <= basket.x + basket.w / 2) {
+                        diamonds.splice(i, 1);
+                        score++; scoreEl.textContent = score;
+                        continue;
+                    }
+
+
+                    // off screen
+                    if (d.y - d.s > H) diamonds.splice(i, 1);
+                }
+
+                drawBasket();
+
+                if (!over) animId = requestAnimationFrame(step);
+            };
+
+            const start = () => {
+                reset();
+                running = true; over = false;
+                startBtn.style.display = 'none';
+                restartBtn.style.display = 'inline-block';
+                if (animId) cancelAnimationFrame(animId);
+                step();
+                if (timerId) clearInterval(timerId);
+                timerId = setInterval(() => {
+                    time--; timeEl.textContent = time;
+                    if (time <= 0) {
+                        clearInterval(timerId);
+                        over = true; running = false;
+                        ctx.fillStyle = 'rgba(0,0,0,.5)';
+                        ctx.fillRect(0, 0, W, H);
+                        ctx.fillStyle = '#fff';
+                        ctx.font = '700 24px PP Mori, system-ui';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(`time! score: ${score}`, W / 2, H / 2);
+                    }
+                }, 1000);
+            };
+
+            const restart = () => { start(); };
+
+            // controls
+            const moveTo = (x) => {
+                const rect = cvs.getBoundingClientRect();
+                const rel = (x - rect.left) / rect.width;
+                basket.x = Math.max(basket.w / 2, Math.min(W - basket.w / 2, rel * W));
+            };
+            cvs.addEventListener('mousemove', e => moveTo(e.clientX));
+            cvs.addEventListener('touchmove', e => { moveTo(e.touches[0].clientX); e.preventDefault(); }, { passive: false });
+            startBtn.addEventListener('click', start);
+            restartBtn.addEventListener('click', restart);
+
+            // fit canvas on resize
+            const resize = () => {
+                const scale = Math.min(1, (cvs.parentElement.clientWidth - 0) / 420);
+                cvs.style.transformOrigin = 'top center';
+                cvs.style.transform = `scale(${scale})`;
+            };
+            window.addEventListener('resize', resize); resize();
+        })();
+
+        /* ---------- ASMR loader ---------- */
+        (() => {
+            const file = $('#asmrFile');
+            const audio = $('#asmrAudio');
+            if (!file || !audio) return;
+            file.addEventListener('change', () => {
+                const f = file.files?.[0];
+                if (!f) return;
+                const url = URL.createObjectURL(f);
+                audio.src = url;
+                audio.play().catch(() => { /* user gesture might be required */ });
+            });
+        })();
+    </script>
+</body>
+
+</html>
