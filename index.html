@@ -112,6 +112,20 @@
             }
         }
 
+        /* no sticky header on mobile */
+        @media (max-width: 679px) {
+            body>header {
+                position: static;
+                /* instead of sticky */
+                top: auto;
+                backdrop-filter: none;
+                background: var(--bg);
+                /* or keep your gradient if you want */
+                border-bottom: 0;
+            }
+        }
+
+
         .card {
             --card-bg: #ffffff;
             --card-border: var(--line);
